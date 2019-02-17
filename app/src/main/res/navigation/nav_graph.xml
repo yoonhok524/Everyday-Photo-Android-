@@ -1,0 +1,79 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            xmlns:tools="http://schemas.android.com/tools" android:id="@+id/nav_graph"
+            app:startDestination="@id/splashFragment">
+
+    <fragment android:id="@+id/modelsFragment" android:name="com.youknow.everydayphoto.ui.models.ModelsFragment"
+              android:label="fragment_models" tools:layout="@layout/fragment_models">
+        <action android:id="@+id/action_modelsFragment_to_addModelFragment"
+                app:destination="@id/addModelFragment"/>
+        <action android:id="@+id/action_modelsFragment_to_galleryFragment" app:destination="@id/modelFragment"/>
+        <action android:id="@+id/action_modelsFragment_to_cameraFragment" app:destination="@id/cameraFragment"/>
+        <action android:id="@+id/action_modelsFragment_to_editModelFragment" app:destination="@id/editModelFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/cameraFragment"
+              android:name="com.youknow.everydayphoto.ui.camera.CameraFragment"
+              android:label="fragment_camera"
+              tools:layout="@layout/fragment_camera">
+        <argument android:name="model"
+                  app:argType="com.youknow.everydayphoto.data.model.Model"/>
+        <action android:id="@+id/action_cameraFragment_to_modelsFragment" app:destination="@id/modelsFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/splashFragment"
+              android:name="com.youknow.everydayphoto.ui.splash.SplashFragment"
+              android:label="fragment_splash"
+              tools:layout="@layout/fragment_splash">
+
+        <action android:id="@+id/action_splashFragment_to_modelsFragment"
+                app:destination="@id/modelsFragment"
+                app:popUpTo="@id/splashFragment"
+                app:popUpToInclusive="true"/>
+
+        <action android:id="@+id/action_splashFragment_to_signInFragment"
+                app:destination="@id/signInFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/addModelFragment" android:name="com.youknow.everydayphoto.ui.models.add.AddModelFragment"
+              android:label="fragment_add_edit_model" tools:layout="@layout/fragment_add_model"/>
+
+    <fragment android:id="@+id/modelFragment"
+              android:name="com.youknow.everydayphoto.ui.model.ModelFragment"
+              android:label="fragment_gallery"
+              tools:layout="@layout/fragment_model">
+        <argument android:name="model" app:argType="com.youknow.everydayphoto.data.model.Model"/>
+        <action android:id="@+id/action_modelFragment_to_imageFragment" app:destination="@id/imageFragment"/>
+        <action android:id="@+id/action_modelFragment_to_cameraFragment" app:destination="@id/cameraFragment"/>
+        <action android:id="@+id/action_modelFragment_to_photosFragment" app:destination="@id/photosFragment"/>
+    </fragment>
+
+    <fragment android:id="@+id/imageFragment"
+              android:name="com.youknow.everydayphoto.ui.model.image.ImageFragment"
+              android:label="fragment_image"
+              tools:layout="@layout/fragment_image">
+
+        <argument android:name="model"
+                  app:argType="com.youknow.everydayphoto.data.model.Model"/>
+        <argument android:name="photo"
+                  app:argType="com.youknow.everydayphoto.data.model.Photo"/>
+    </fragment>
+    <fragment android:id="@+id/signInFragment" android:name="com.youknow.everydayphoto.ui.signin.SignInFragment"
+              android:label="fragment_sign_in" tools:layout="@layout/fragment_sign_in">
+
+        <action android:id="@+id/action_signInFragment_to_modelsFragment"
+                app:destination="@id/modelsFragment"
+                app:popUpTo="@id/signInFragment"
+                app:popUpToInclusive="true"/>
+    </fragment>
+    <fragment android:id="@+id/editModelFragment" android:name="com.youknow.everydayphoto.ui.models.edit.EditModelFragment"
+              android:label="fragment_edit_model" tools:layout="@layout/fragment_edit_model">
+        <argument android:name="model" app:argType="com.youknow.everydayphoto.data.model.Model"/>
+    </fragment>
+    <fragment android:id="@+id/photosFragment" android:name="com.youknow.everydayphoto.ui.model.photos.PhotosFragment"
+              android:label="fragment_photos" tools:layout="@layout/fragment_photos">
+        <argument android:name="model" app:argType="com.youknow.everydayphoto.data.model.Model"/>
+        <action android:id="@+id/action_photosFragment_to_imageFragment" app:destination="@id/imageFragment"/>
+    </fragment>
+</navigation>

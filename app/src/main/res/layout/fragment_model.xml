@@ -1,0 +1,183 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".ui.model.ModelFragment">
+
+    <android.support.constraint.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+        <View
+                android:id="@+id/bgHeader"
+                android:layout_width="match_parent"
+                android:layout_height="0dp"
+                android:layout_marginBottom="92dp"
+                android:background="@color/colorPrimaryLight"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintBottom_toBottomOf="@id/cvHeader"/>
+
+        <ImageView
+                android:id="@+id/ivProfile"
+                android:background="@drawable/shape_icon_border_circle_primary"
+                android:layout_width="72dp"
+                android:layout_height="72dp"
+                android:layout_margin="32dp"
+                android:elevation="12dp"
+                android:src="@drawable/ic_model"
+                android:padding="16dp"
+                app:layout_constraintTop_toTopOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        <android.support.v7.widget.CardView
+                android:id="@+id/cvHeader"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="16dp"
+                android:layout_marginEnd="16dp"
+                android:layout_marginTop="36dp"
+                app:cardElevation="8dp"
+                app:cardCornerRadius="16dp"
+                app:layout_constraintTop_toTopOf="@id/ivProfile">
+
+            <android.support.constraint.ConstraintLayout
+                    android:id="@+id/container"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                <TextView
+                        android:id="@+id/tvName"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="52dp"
+                        android:textSize="24sp"
+                        android:textStyle="bold"
+                        android:textColor="@color/black"
+                        tools:text="Matt Damon"
+                        app:layout_constraintTop_toTopOf="parent"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                        android:id="@+id/tvCreatedAt"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        tools:text="Created at 2019 Jan"
+                        app:layout_constraintTop_toBottomOf="@id/tvName"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                        android:id="@+id/tvDesc"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="8dp"
+                        android:layout_marginStart="24dp"
+                        android:layout_marginEnd="24dp"
+                        android:ellipsize="end"
+                        android:maxLines="3"
+                        app:layout_constraintTop_toBottomOf="@id/tvCreatedAt"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                        android:id="@+id/tvDays"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="12dp"
+                        android:textColor="@color/black"
+                        tools:text="3,000"
+                        app:layout_constraintTop_toBottomOf="@id/tvDesc"
+                        app:layout_constraintStart_toStartOf="parent"
+                        app:layout_constraintEnd_toStartOf="@id/tvPhotos"/>
+
+                <TextView
+                        android:id="@+id/tvNumberOfDays"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:layout_marginTop="4dp"
+                        android:layout_marginBottom="16dp"
+                        android:text="@string/days"
+                        app:layout_constraintTop_toBottomOf="@id/tvDays"
+                        app:layout_constraintStart_toStartOf="@id/tvDays"
+                        app:layout_constraintEnd_toEndOf="@id/tvDays"
+                        app:layout_constraintBottom_toBottomOf="parent"/>
+
+                <TextView
+                        android:id="@+id/tvPhotos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:textColor="@color/black"
+                        tools:text="2,000"
+                        app:layout_constraintTop_toTopOf="@id/tvDays"
+                        app:layout_constraintStart_toEndOf="@id/tvDays"
+                        app:layout_constraintEnd_toEndOf="parent"/>
+
+                <TextView
+                        android:id="@+id/tvNumberOfPhotos"
+                        android:layout_width="wrap_content"
+                        android:layout_height="wrap_content"
+                        android:text="@string/photos"
+                        app:layout_constraintTop_toTopOf="@id/tvNumberOfDays"
+                        app:layout_constraintStart_toStartOf="@id/tvPhotos"
+                        app:layout_constraintEnd_toEndOf="@id/tvPhotos"/>
+            </android.support.constraint.ConstraintLayout>
+        </android.support.v7.widget.CardView>
+
+        <TextView
+                android:id="@+id/tvPhotosLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/photos"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/cvHeader"
+                app:layout_constraintStart_toStartOf="@id/cvHeader"/>
+
+        <TextView
+                android:id="@+id/tvMorePhotos"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/more"
+                android:visibility="gone"
+                app:layout_constraintTop_toTopOf="@id/tvPhotosLabel"
+                app:layout_constraintBottom_toBottomOf="@id/tvPhotosLabel"
+                app:layout_constraintEnd_toEndOf="@id/cvHeader"/>
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvPhotos"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="4dp"
+                app:layout_constraintTop_toBottomOf="@id/tvPhotosLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+        <TextView
+                android:id="@+id/tvVideosLabel"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="24dp"
+                android:text="@string/videos"
+                android:textColor="@color/black"
+                android:textSize="16sp"
+                app:layout_constraintTop_toBottomOf="@id/rvPhotos"
+                app:layout_constraintStart_toStartOf="@id/cvHeader"/>
+
+        <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvVideos"
+                android:layout_width="match_parent"
+                android:layout_height="256dp"
+                android:layout_marginTop="4dp"
+                app:layout_constraintTop_toBottomOf="@id/tvVideosLabel"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintEnd_toEndOf="parent"/>
+
+    </android.support.constraint.ConstraintLayout>
+</ScrollView>
